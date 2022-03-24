@@ -1,13 +1,17 @@
 #! /usr/bin/python3
 '''deploying contract'''
 #import os
-from brownie import Crud, accounts #,config
+from brownie import Crud, accounts, network, config
 
-
+def get_network():
+    if network.show_active() == "development":
+        return accounts[0]
+    else:
+        return accounts.add(config['wallets']['from_key'])
 def deploy_crud():
     '''deploy function'''
     #using ganache
-    account = accounts[0]
+    account = get_network()
 
     #using brownie to password encrypt the key
     #account = accounts.load("KEY")
