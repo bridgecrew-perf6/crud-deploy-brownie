@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.0;
 
-contract Storage {
+contract Crud {
 	uint256 favoriteNumber;
 	bool favoriteBool;
 
